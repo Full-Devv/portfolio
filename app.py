@@ -20,7 +20,9 @@ app.config['MAIL_DEFAULT_SENDER'] = os.getenv('EMAIL_USER')
 
 mail = Mail(app)
 print(f"Using email: {app.config['MAIL_USERNAME']}, password: {app.config['MAIL_PASSWORD']}")
-
+@app.route('/')
+def home():
+    return jsonify({"message": "Welcome to Digi Solutions Backend API"}), 200
 @app.route('/api/contact', methods=['POST'])
 def contact():
     data = request.get_json()
@@ -44,4 +46,4 @@ def contact():
         return jsonify({'status': 'error', 'message': f'Error sending message: {str(e)}'})
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5555)
