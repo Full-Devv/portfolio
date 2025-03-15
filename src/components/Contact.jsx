@@ -12,7 +12,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5555/api/contact';
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/contact';
       setStatus(response.data.message);
     } catch (error) {
       setStatus('Error sending message');
